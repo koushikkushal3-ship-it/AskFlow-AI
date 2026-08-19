@@ -1,0 +1,1 @@
+- [API contract generation](api-contract-generation.md) — count-like integer fields need care because generated validators target a newer Zod API.

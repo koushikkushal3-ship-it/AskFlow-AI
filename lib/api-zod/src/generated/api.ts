@@ -32,7 +32,7 @@ export const GetCurrentUserResponse = zod.object({
  * @summary Get dashboard summary
  */
 export const GetDashboardResponse = zod.object({
-  "totalConversations": zod.int(),
+  "totalConversations": zod.number(),
   "user": zod.object({
   "id": zod.string(),
   "email": zod.string(),
@@ -50,7 +50,7 @@ export const ListConversationsResponseItem = zod.object({
   "title": zod.string(),
   "createdAt": zod.string(),
   "updatedAt": zod.string(),
-  "messageCount": zod.int()
+  "messageCount": zod.number()
 })
 export const ListConversationsResponse = zod.array(ListConversationsResponseItem)
 
@@ -71,7 +71,7 @@ export const CreateConversationResponse = zod.object({
   "title": zod.string(),
   "createdAt": zod.string(),
   "updatedAt": zod.string(),
-  "messageCount": zod.int()
+  "messageCount": zod.number()
 })
 
 
@@ -87,7 +87,7 @@ export const GetConversationResponse = zod.object({
   "title": zod.string(),
   "createdAt": zod.string(),
   "updatedAt": zod.string(),
-  "messageCount": zod.int()
+  "messageCount": zod.number()
 }).and(zod.object({
   "messages": zod.array(zod.object({
   "id": zod.string(),

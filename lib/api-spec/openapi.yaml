@@ -212,7 +212,7 @@ components:
       type: object
       properties:
         totalConversations:
-          type: integer
+          type: number
         user:
           $ref: "#/components/schemas/CurrentUser"
       required: [totalConversations, user]
@@ -228,7 +228,7 @@ components:
         updatedAt:
           type: string
         messageCount:
-          type: integer
+          type: number
       required: [id, title, createdAt, updatedAt, messageCount]
     ConversationInput:
       type: object
