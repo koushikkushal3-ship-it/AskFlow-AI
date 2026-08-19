@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "AskFlow AI"
+description = "A secure full-stack AI workspace where users can sign up, manage conversations, and chat with Gemini in a focused interface."
+version = "1.0.0"
+id = "artifacts/askflow-ai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23362
+
+[services.development]
+run = "pnpm --filter @workspace/askflow-ai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/askflow-ai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/askflow-ai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23362"
+BASE_PATH = "/"
